@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from_id: 
+  to_id: 
+  datetime: 2021-08-03 13:45:32
+  flight_duration: 1
+
+two:
+  from_id: 
+  to_id: 
+  datetime: 2021-08-03 13:45:32
+  flight_duration: 1
