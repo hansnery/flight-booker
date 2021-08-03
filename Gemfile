@@ -70,3 +70,4 @@ gem 'pundit', '~> 2.1'
 gem 'sidekiq', '~> 6.2'
 gem 'sitemap_generator', '~> 6.1'
 gem 'whenever', require: false
+gem 'simple_form', '~> 5.1'
