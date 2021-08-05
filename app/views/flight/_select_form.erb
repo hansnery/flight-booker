@@ -1,0 +1,8 @@
+<div class="container">
+  <%= simple_form_for :search, url: root_path, method: "GET" do |f| %>
+    <%= f.input :from_airport, as: :select, collection: @select_airports, prompt: 'From', label: false, wrapper: false %>
+    <%= f.input :to_airport, as: :select, collection: @select_airports, prompt: 'To', label: false, wrapper: false %>
+    <%= f.button :submit, "Search Flights" %>
+    <% @search = params["search"] %>
+  <% end %>
+</div>
