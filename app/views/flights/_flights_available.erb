@@ -1,12 +1,19 @@
 <br>
 <h1>Available Flights</h1>
-<% @available_flights = Flight.where("from_id = :from_airport AND to_id = :to_airport AND datetime = :date", {from_airport: @search.values[0], to_airport: @search.values[1], date: @search.values[3]}) %>
-<% @available_flights.each do |flight |%>
-  <%= flight.from_airport.city %>(<%= flight.from_airport.airport_code %>)
-  ->
-  <%= flight.to_airport.city %>(<%= flight.to_airport.airport_code %>)
-  on
-  <%= flight.datetime.strftime("%Y/%m/%d") %>
-  at
-  <%= flight.datetime.strftime("%H:%M") %>
+<% unless @search.values.map { |n| true if n.blank? } %>
+  <% @available_flights = Flight.where("from_id = :from_airport AND to_id = :to_airport AND datetime = :date", {from_airport: @search.values[0], to_airport: @search.values[1], date: @search.values[3]}) %>
+  <% @available_flights.each do |flight |%>
+    <br>
+    <h5>
+      <%= flight.from_airport.city %> (<%= flight.from_airport.airport_code %>)
+      ->
+      <%= flight.to_airport.city %> (<%= flight.to_airport.airport_code %>)
+      on
+      <%= flight.datetime.strftime("%Y/%m/%d") %>
+      at
+      <%= flight.datetime.strftime("%H:%M") %>
+    </h5>
+  <% end %>
+<% else %>
+  No available flights on this date.
 <% end %>
