@@ -13,5 +13,9 @@ if Rails.env.development?
   airport1 = Airport.create(airport_code: 'SFO', city: 'San Francisco')
   airport2 = Airport.create(airport_code: 'NYC', city: 'New York')
 
-  flight = Flight.create(from_id: airport1.id, to_id: airport2.id, datetime: DateTime.new(DateTime.current.year, DateTime.current.month, DateTime.current.day).change(day: DateTime.current.day + 14))
+  100.times do
+    flight = Flight.create(from_id: airport1.id, to_id: airport2.id, datetime: DateTime.new(DateTime.current.year, DateTime.current.month, DateTime.current.day, DateTime.current.hour, DateTime.current.min, DateTime.current.sec).advance(days: DateTime.current.day + rand(1..100), hours: DateTime.current.hour + rand(1..100), minutes: DateTime.current.min + rand(1..100)))
+    p flight
+  end
+  puts "Created flights!"
 end
