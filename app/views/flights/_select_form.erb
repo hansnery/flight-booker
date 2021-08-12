@@ -5,6 +5,15 @@
     <%= f.input :passengers, as: :select, collection: 1..4, prompt: 'Passengers', label: false, wrapper: false %>
     <%= f.input :datetime, as: :select, collection: @select_dates, prompt: 'Date', label: false, wrapper: false %>
     <%= f.button :submit, "Search Flights" %>
-    <% @search = params["search"] %>
+    <% @search = params["search"].values %>
+    <% if @search.present? %>
+      <% @search.map do |param| %>
+        <% if param.blank? %>
+          <% @search = nil %>
+          <% link_to root_path %>
+          <% flash.now[:alert] = "Invalid search! Make sure to select an option for every form." if param.blank? %>
+        <% end %>
+      <% end %>
+    <% end %>
   <% end %>
 </div>

@@ -1,8 +1,8 @@
 <br>
 <h1>Available Flights</h1>
-<% unless @search.values.map { |n| true if n.blank? } %>
-  <% @available_flights = Flight.where("from_id = :from_airport AND to_id = :to_airport AND datetime = :date", {from_airport: @search.values[0], to_airport: @search.values[1], date: @search.values[3]}) %>
-  <% @available_flights.each do |flight |%>
+<% @available_flights = Flight.where("from_id = :from_airport AND to_id = :to_airport AND datetime = :datetime", {from_airport: @search[0], to_airport: @search[1], datetime: @search[3]}) %>
+<% unless @available_flights.empty? %>
+  <% @available_flights.each do |flight| %>
     <br>
     <h5>
       <%= flight.from_airport.city %> (<%= flight.from_airport.airport_code %>)
@@ -13,6 +13,10 @@
       at
       <%= flight.datetime.strftime("%H:%M") %>
     </h5>
+    <%#= simple_form_for flight, url: root_path, method: "GET" do |f| %>
+      <%#= f.association :booking, as: :radio_buttons, label: false, wrapper: false %>
+      <%#= f.button :submit, "Choose Flight" %>
+    <%# end %>
   <% end %>
 <% else %>
   No available flights on this date.
