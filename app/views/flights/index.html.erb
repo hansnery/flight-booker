@@ -1,4 +1,9 @@
 <h1>Flights</h1>
 <br>
-<%= render 'select_form' %>
-<%= render 'flights_available' if @search.present? %>
+<% if @search.present? && @available_flights.present? %>
+  <% @search = nil %>
+  <%= render 'select_form' %>
+  <%= render 'flights_available' %>
+<% else %>
+  <%= render 'select_form' %>
+<% end %>
