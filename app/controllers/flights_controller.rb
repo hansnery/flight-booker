@@ -2,6 +2,8 @@ class FlightsController < ApplicationController
   def index
     @search = params["search"]
     @select_dates = Flight.all.order(datetime: :asc).map { |flight| [flight.datetime.strftime("%Y/%m/%d"), flight.datetime] }
+    @select_formatted_dates = @select_dates.map { |flight| [flight[0]] }
+    @select_formatted_dates = @select_formatted_dates.uniq
     @select_airports = Airport.all.map { |airport| [airport.city, airport.id] }
     if @search.present?
       @available_flights = Flight.where("from_id = :from_airport AND to_id = :to_airport AND datetime = :datetime", {from_airport: @search.values[0], to_airport: @search.values[1], datetime: @search.values[3]})
