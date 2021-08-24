@@ -2,20 +2,18 @@
 <h1>Available Flights</h1>
 <% unless @available_flights.empty? %>
   <br>
-  <%= simple_form_for :booking, url: root_path, wrapper: false, method: "GET" do |f| %>
+  <%= simple_form_for :booking, url: root_path, method: "GET" do |f| %>
     <h5>
-      <% @available_flights.each do |flight| %>
-        <%= f.input :create, as: :radio_buttons, label: false, collection: @available_flights %>
-        <%= f.hidden_field :passengers, :value => "#{@passengers}" %>
-        <%= flight.from_airport.city %> (<%= flight.from_airport.airport_code %>)
+      <%# @available_flights.each do |flight| %>
+        <%= @available_flights.first.from_airport.city %> (<%= @available_flights.first.from_airport.airport_code %>)
         ->
-        <%= flight.to_airport.city %> (<%= flight.to_airport.airport_code %>)
+        <%= @available_flights.first.to_airport.city %> (<%= @available_flights.first.to_airport.airport_code %>)
         on
-        <%= flight.date %>
-        at
-        <%= flight.time %>
+        <%= @available_flights.first.date %>
+        <%= f.input :new, as: :radio_buttons, label: false, collection: @available_flights.map { |f| f.time } %>
+        <%= f.hidden_field :passengers, :value => "#{@passengers}" %>
         <%= f.button :submit, "Choose Flight" %>
-      <% end %>
+      <%# end %>
     </h5>
   <% end %>
 <% else %>
