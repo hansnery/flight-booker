@@ -14,7 +14,11 @@ if Rails.env.development?
   airport2 = Airport.create(airport_code: 'NYC', city: 'New York')
 
   100.times do
-    flight = Flight.create(from_id: airport1.id, to_id: airport2.id, datetime: DateTime.new(DateTime.current.year, DateTime.current.month, DateTime.current.day, DateTime.current.hour, DateTime.current.min, DateTime.current.sec).advance(days: DateTime.current.day + rand(1..100), hours: DateTime.current.hour + rand(1..100), minutes: DateTime.current.min + rand(1..100)))
+    random_date = DateTime.new(DateTime.current.year, DateTime.current.month, DateTime.current.day, DateTime.current.hour, DateTime.current.min, DateTime.current.sec).advance(days: DateTime.current.day + rand(1..100))
+    random_date = random_date.strftime("%Y/%m/%d")
+    random_time = DateTime.now.advance(hours: Time.current.hour + rand(1..100), minutes: Time.current.min + rand(1..100))
+    random_time = random_time.strftime("%H:%M")
+    flight = Flight.create(from_id: airport1.id, to_id: airport2.id, date: random_date, time: random_time)
     p flight
   end
   puts "Created flights!"

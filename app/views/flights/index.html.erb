@@ -1,8 +1,7 @@
 <h1>Flights</h1>
 <br>
-<%= @select_formatted_dates.count %>
 <% if @search.present? && @available_flights.present? %>
-  <%# @search = nil %>
+  <% @search = nil %>
   <%= render 'select_form' %>
   <%= render 'flights_available' %>
 <% else %>
