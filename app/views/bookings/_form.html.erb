@@ -1,6 +1,6 @@
-
 <br>
-<h1>Passengers</h1>
+<%= @booking_params %>
+<%= @booking.flight_id %>
 <%= simple_form_for :passenger, url: root_path, method: "GET" do |f| %>
 
   <div class="col-md-2 py-2">

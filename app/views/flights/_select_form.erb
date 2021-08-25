@@ -1,27 +1,32 @@
 <div class="container">
   <% unless @search.present? %>
     <%= simple_form_for :search, url: root_path, method: "GET" do |f| %>
+
       <div class="row">
         <div class="col-md-3 py-2">
           <div class="py-3">
             <%= f.input :from_id, as: :select, collection: @select_airports, prompt: 'From', label: false %>
           </div>
         </div>
+
         <div class="col-md-3 py-2">
           <div class="py-3">
             <%= f.input :to_id, as: :select, collection: @select_airports, prompt: 'To', label: false %>
           </div>
         </div>
+
         <div class="col-md-2 py-2">
           <div class="py-3">
             <%= f.input :passengers, as: :select, collection: 1..4, prompt: 'Passengers', label: false %>
           </div>
         </div>
+
         <div class="col-md-2 py-2">
           <div class="py-3">
             <%= f.input :datetime, as: :select, collection: @select_dates, prompt: 'Date', label: false %>
           </div>
         </div>
+
         <div class="col-md-2 py-2">
           <div class="py-3">
             <%= f.button :submit, "Search Flights", class: 'col btn btn-primary' %>
