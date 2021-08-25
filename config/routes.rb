@@ -28,6 +28,8 @@ end
 
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
+  resources :bookings
+  resources :passengers
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   # resources :flights, only: [:index]
   root to: 'flights#index'

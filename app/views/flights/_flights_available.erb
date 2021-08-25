@@ -2,19 +2,29 @@
 <h1>Available Flights</h1>
 <% unless @available_flights.empty? %>
   <br>
-  <%= simple_form_for :booking, url: root_path, method: "GET" do |f| %>
-    <h5>
-      <%# @available_flights.each do |flight| %>
-        <%= @available_flights.first.from_airport.city %> (<%= @available_flights.first.from_airport.airport_code %>)
-        ->
-        <%= @available_flights.first.to_airport.city %> (<%= @available_flights.first.to_airport.airport_code %>)
-        on
-        <%= @available_flights.first.date %>
-        <%= f.input :new, as: :radio_buttons, label: false, collection: @available_flights.map { |f| f.time } %>
+  <%= simple_form_for :booking, url: new_booking_path, method: "GET", defaults: { input_html: { class: 'col-md-1' } } do |f| %>
+    <div class="row">
+      <h5>
+        <div class="px-3 pb-3">
+          <%= @available_flights.first.from_airport.city %> (<%= @available_flights.first.from_airport.airport_code %>)
+          ->
+          <%= @available_flights.first.to_airport.city %> (<%= @available_flights.first.to_airport.airport_code %>)
+          on
+          <%= @available_flights.first.date %>
+        </div>
         <%= f.hidden_field :passengers, :value => "#{@passengers}" %>
-        <%= f.button :submit, "Choose Flight" %>
-      <%# end %>
-    </h5>
+        <div class="col-md-3">
+          <div class="form-inputs pb-3">
+            <%= f.input_field :new, as: :radio_buttons, collection: @available_flights.map { |f| f.time } %>
+          </div>
+        </div>
+        <div class="col px-3">
+          <div class="btn btn-primary text-white">
+            <%= f.button :submit, "Book Flight", class: 'col btn btn-primary' %>
+          </div>
+        </div>
+      </h5>
+    </div>
   <% end %>
 <% else %>
   No available flights.

@@ -12,6 +12,10 @@ class BookingsController < ApplicationController
 
   # GET /bookings/new
   def new
+    # root_path
+    flash.now[:alert] = "Booked."
+    @booking_params = params["booking"]
+    # @chosen_flight = Flight.where("from_id = :from_airport AND to_id = :to_airport AND date = :date AND time = :time", {from_airport: @search.values[0], to_airport: @search.values[1], date: @search.values[3], time: @booking_params[0]})
     @booking = Booking.new
   end
 
