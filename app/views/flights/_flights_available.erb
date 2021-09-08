@@ -19,13 +19,13 @@
 
         <div class="col-md-3 p-3">
           <div class="form-inputs pb-3">
-            <%= f.input_field :new, as: :radio_buttons, collection: @available_flights.map { |f| f.time } %>
+            <%= f.input_field :time, as: :radio_buttons, collection: @available_flights.map { |f| f.time } %>
           </div>
         </div>
 
         <div class="col px-3">
           <div class="btn btn-primary text-white">
-            <%= f.button :submit, "Book Flight", class: 'col btn btn-primary' %>
+            <%= f.button :submit, "Proceed", class: 'col btn btn-primary' %>
           </div>
         </div>
       </h5>

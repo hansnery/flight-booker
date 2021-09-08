@@ -11,37 +11,40 @@
     <div class="px-3 pb-3">
       Flight Id #<%= @flight.id %>
     </div>
+    <br>
     
-    <%= simple_form_for(@passenger) do |f| %>
-      <%= f.hidden_field :booking_id, :value => "#{@booking.id}" %>
+    <%= simple_form_for(@booking) do |f| %>
+      <%= f.hidden_field :flight_id, :value => "#{@flight.id}" %>
 
-      <div class="px-3">
-        Name
-      </div>
+        <%= f.simple_fields_for :passengers do |p| %>
+          <%= p.hidden_field :booking_id, :value => "#{@booking.id}" %>
+        
+          <div class="px-3">
+            Name
+          </div>
+          <div class="col-md-2 py-2">
+            <div class="px-3 pb-3">
+              <%= p.input :name, label: false %>
+            </div>
+          </div>
+
+          <div class="px-3">
+            Email
+          </div>
+          <div class="col-md-2 py-2">
+            <div class="px-3 pb-3">
+              <%= p.input :email, label: false %>
+            </div>
+          </div>
+        
+        <% end %>
+      
       <div class="col-md-2 py-2">
         <div class="px-3 pb-3">
-          <%= f.input :name, label: false %>
+          <%= f.button :submit, "Book Flight", class: 'col btn btn-primary' %>
         </div>
       </div>
-
-      <div class="px-3">
-        Email
-      </div>
-      <div class="col-md-2 py-2">
-        <div class="px-3 pb-3">
-          <%= f.input :email, label: false %>
-        </div>
-      </div>
-
-      <div class="col-md-2 py-2">
-        <div class="px-3 pb-3">
-          <%= f.button :submit, class: 'col btn btn-primary' %>
-        </div>
-      </div>
-
-      <%#= f.hidden_field :flight_id, :value => "#{@flight.id}" %>
-      <%#= f.hidden_field :passengers, :value => "#{@passengers}" %>
-      <%#= f.hidden_field :time, :value => "#{@time}" %>
+      
     <% end %>
   </h5>
 </div>

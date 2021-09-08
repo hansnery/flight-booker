@@ -13,6 +13,7 @@ class PassengersController < ApplicationController
   # GET /passengers/new
   def new
     @passenger = Passenger.new
+    @flight = Flight.find(params["booking"]['flight_id'])
   end
 
   # GET /passengers/1/edit
@@ -64,6 +65,6 @@ class PassengersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def passenger_params
-      params.require(:passenger).permit(:name, :email, :booking_id)
+      params.require(:passenger).permit(:flight_id, :name, :email, :booking_id)
     end
 end
