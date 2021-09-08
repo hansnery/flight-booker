@@ -12,11 +12,16 @@ class BookingsController < ApplicationController
 
   # GET /bookings/new
   def new
+    @passenger = Passenger.new
     @booking_params = params["booking"]
     @booking = Booking.new
     @booking.flight_id = @booking_params.values[0]
     @booking.save
-    flash.now[:success] = "Successfully booked."
+    @flight = Flight.where("id = ?", @booking.flight_id)
+    @flight = @flight[0]
+    @passengers = @booking_params.values[1]
+    @time = @booking_params.values[2]
+    # flash.now[:success] = "Successfully booked."
   end
 
   # GET /bookings/1/edit

@@ -17,7 +17,7 @@
         <%= f.hidden_field :flight_id, :value => "#{@available_flights.first.id}" %>
         <%= f.hidden_field :passengers, :value => "#{@passengers}" %>
 
-        <div class="col-md-3">
+        <div class="col-md-3 p-3">
           <div class="form-inputs pb-3">
             <%= f.input_field :new, as: :radio_buttons, collection: @available_flights.map { |f| f.time } %>
           </div>

@@ -1,23 +1,47 @@
 <br>
-<%= @booking_params %>
-<%= @booking.flight_id %>
-<%= simple_form_for :passenger, url: root_path, method: "GET" do |f| %>
-
-  <div class="col-md-2 py-2">
-    <div class="py-3">
-      <%= f.input :name %>
+<div class="row">
+  <h5>
+    <div class="px-3 pb-3">
+      <%= @flight.from_airport.city %> (<%= @flight.from_airport.airport_code %>)
+      ->
+      <%= @flight.to_airport.city %> (<%= @flight.to_airport.airport_code %>)
+      on
+      <%= @flight.date %>
     </div>
-  </div>
-
-  <div class="col-md-2 py-2">
-    <div class="py-3">
-      <%= f.input :email %>
+    <div class="px-3 pb-3">
+      Flight Id #<%= @flight.id %>
     </div>
-  </div>
+    
+    <%= simple_form_for(@passenger) do |f| %>
+      <%= f.hidden_field :booking_id, :value => "#{@booking.id}" %>
 
-  <div class="col-md-2 py-2">
-    <div class="py-3">
-      <%= f.button :submit, class: 'col btn btn-primary' %>
-    </div>
-  </div>
-<% end %>
+      <div class="px-3">
+        Name
+      </div>
+      <div class="col-md-2 py-2">
+        <div class="px-3 pb-3">
+          <%= f.input :name, label: false %>
+        </div>
+      </div>
+
+      <div class="px-3">
+        Email
+      </div>
+      <div class="col-md-2 py-2">
+        <div class="px-3 pb-3">
+          <%= f.input :email, label: false %>
+        </div>
+      </div>
+
+      <div class="col-md-2 py-2">
+        <div class="px-3 pb-3">
+          <%= f.button :submit, class: 'col btn btn-primary' %>
+        </div>
+      </div>
+
+      <%#= f.hidden_field :flight_id, :value => "#{@flight.id}" %>
+      <%#= f.hidden_field :passengers, :value => "#{@passengers}" %>
+      <%#= f.hidden_field :time, :value => "#{@time}" %>
+    <% end %>
+  </h5>
+</div>

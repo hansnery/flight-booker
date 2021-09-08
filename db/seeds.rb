@@ -9,6 +9,8 @@
 if Rails.env.development?
   Airport.delete_all
   Flight.delete_all
+  Booking.delete_all
+  Passenger.delete_all
 
   airport1 = Airport.create(airport_code: 'SFO', city: 'San Francisco')
   airport2 = Airport.create(airport_code: 'NYC', city: 'New York')
