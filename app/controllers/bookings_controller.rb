@@ -10,6 +10,8 @@ class BookingsController < ApplicationController
   def show
   end
 
+  before_action :authenticate_user!
+  
   # GET /bookings/new
   def new
     @booking = Booking.new
