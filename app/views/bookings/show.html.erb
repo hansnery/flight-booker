@@ -1,14 +1,31 @@
 <div class="page-header">
-  <%= link_to bookings_path, class: 'btn btn-default' do %>
-    All Bookings
-  <% end %>
-  <%= link_to edit_booking_path(@booking), class: 'btn btn-primary' do %>
-    Edit
-  <% end %>
-  <h1>Show booking</h1>
-</div>
+  <h5>
+    <div class="px-3 pb-3">
+        <%= @booking.flight.from_airport.city %> (<%= @booking.flight.from_airport.airport_code %>)
+        ->
+        <%= @booking.flight.to_airport.city %> (<%= @booking.flight.to_airport.airport_code %>)
+        on
+        <%= @booking.flight.date %>
+      </div>
+      <div class="px-3 pb-3">
+        Flight Id #<%= @booking.flight.id %>
+      </div>
+      <% number_of_passengers = 0 %>
+      <% @booking.passengers.each do |p| %>
+        <% number_of_passengers += 1 %>
+        <div class="p-3">
+          <b>
+            Passenger #<%= number_of_passengers %>
+          </b>
+        </div>
+        <div class="px-4">
+          <%= p.name %>
+        </div>
 
-<dl class="dl-horizontal">
-  <dt>Flight:</dt>
-  <dd><%= @booking.flight_id %></dd>
-</dl>
+        <div class="px-4">
+          <%= p.email %>
+        </div>
+      <% end %>
+    </div>
+  </h5>
+</div>

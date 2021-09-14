@@ -3,7 +3,7 @@
 <% if @search.present? && @available_flights.present? %>
   <% @search = nil %>
   <%= render 'select_form' %>
-  <%= render 'flights_available' %>
+  <%= render 'available_flights' %>
 <% else %>
   <%= render 'select_form' %>
 <% end %>

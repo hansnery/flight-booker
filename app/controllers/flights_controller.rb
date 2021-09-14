@@ -7,6 +7,7 @@ class FlightsController < ApplicationController
     if @search.present?
       @passengers = @search.values[2]
       @available_flights = Flight.where("from_id = :from_airport AND to_id = :to_airport AND date = :date", {from_airport: @search.values[0], to_airport: @search.values[1], date: @search.values[3]})
+      @available_flights = @available_flights.order(time: :asc)
       @search.values.map do |param|
         if param.blank?
           @search = nil
@@ -16,10 +17,4 @@ class FlightsController < ApplicationController
       end
     end
   end
-
-  # private
-
-  # def flight_params
-  #   params.require(:flight).permit(:from_id, :to_id, :datetime, :flight_duration)
-  # end
 end
