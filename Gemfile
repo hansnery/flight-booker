@@ -71,3 +71,6 @@ gem 'sidekiq', '~> 6.2'
 gem 'sitemap_generator', '~> 6.1'
 gem 'whenever', require: false
 gem 'simple_form', '~> 5.1'
+
+# Letter Opener gem to view emails in development
+gem "letter_opener", group: :development

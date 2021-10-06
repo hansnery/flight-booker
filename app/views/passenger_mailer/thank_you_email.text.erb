@@ -1,0 +1,16 @@
+Thanks for using Flight Booker, <%= @passenger.name %>.
+===============================================
+
+You have successfully booked a flight on Flight Booker.
+Below are the booking's details:
+
+<%= @booking.flight.from_airport.city %> (<%= @booking.flight.from_airport.airport_code %>)
+->
+<%= @booking.flight.to_airport.city %> (<%= @booking.flight.to_airport.airport_code %>)
+on
+<%= @booking.flight.date %>
+(Flight Id #<%= @booking.flight.id %>).
+
+To login to the site, just follow this link: <%= @url %>.
+
+Thanks for booking and have a great day!
