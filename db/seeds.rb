@@ -24,5 +24,4 @@
     p flight
   end
   puts "Created flights!"
-end
-# 
+# end
