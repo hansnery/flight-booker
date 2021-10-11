@@ -6,7 +6,7 @@ class PassengerMailer < ApplicationMailer
     @flight = flight
     @booking = booking
     @url  = 'http://localhost:5000/users/sign_in'
-    mail(from: 'odinflightbooker@gmail.com', to: passenger.email, subject: 'Flight Successfully Booked')
+    mail(from: 'Odin Flight Booker <odinflightbooker@gmail.com>', to: passenger.email, subject: 'Flight Successfully Booked')
   end
   # def thank_you_email
   #   @booking = params[:booking]
