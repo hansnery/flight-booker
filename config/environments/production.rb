@@ -119,8 +119,8 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   # Gmail
-  host = 'localhost:5000'
-  config.action_mailer.default_url_options = { :host => 'localhost:5000', protocol: 'http' }
+  host = 'https://odin-flight-booker-by-hansnery.herokuapp.com/'
+  config.action_mailer.default_url_options = { :host => 'https://odin-flight-booker-by-hansnery.herokuapp.com/', protocol: 'http' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address              => 'smtp.gmail.com',
