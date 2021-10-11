@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-if Rails.env.development?
+# if Rails.env.development?
   Airport.delete_all
   Flight.delete_all
   Booking.delete_all
@@ -25,3 +25,4 @@ if Rails.env.development?
   end
   puts "Created flights!"
 end
+# 
