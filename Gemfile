@@ -74,3 +74,6 @@ gem 'simple_form', '~> 5.1'
 
 # Letter Opener gem to view emails in development
 gem "letter_opener", group: :development
+
+# Figaro
+gem "figaro"

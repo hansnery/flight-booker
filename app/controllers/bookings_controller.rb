@@ -34,6 +34,7 @@ class BookingsController < ApplicationController
         @booking.passengers.each do |passenger|
           PassengerMailer.thank_you_email(passenger, @flight, @booking).deliver_now!
         end
+        # PassengerMailer.with(booking: @booking).thank_you_email.deliver_now!
         format.html { redirect_to @booking, notice: "Booking was successfully created." }
         format.json { render :show, status: :created, location: @booking }
       else
