@@ -3,7 +3,7 @@
 A mock project that emulates a website to book flights.
 ## The Assignment
 <p float = 'left'>
-  <img src="https://user-images.githubusercontent.com/19158296/208351198-58169349-08af-460b-bc28-23f58c1b4b97.jpg" alt="Odin-Facebook" width="500" height="300">
+  <img src="https://user-images.githubusercontent.com/19158296/208351198-58169349-08af-460b-bc28-23f58c1b4b97.jpg" alt="Odin-Flight-Booker" width="500" height="300">
 </p>
 
 # How to run this
