@@ -1,24 +1,58 @@
-# README
+# The Odin Project
+# Project: Flight Booker
+A mock project that emulates a website to book flights.
+## The Assignment
+<p float = 'left'>
+  <img src="https://user-images.githubusercontent.com/19158296/208351198-58169349-08af-460b-bc28-23f58c1b4b97.jpg" alt="Odin-Facebook" width="500" height="300">
+</p>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# How to run this
 
-Things you may want to cover:
+## Live
+Go to:  
+https://odin-flight-booker-by-hansnery.herokuapp.com/
 
-* Ruby version
+You can use the test account below to login:
 
-* System dependencies
+**Login:**  
+test@test.com  
+**Password:**  
+test123  
 
-* Configuration
+Or create a new one.
+## Locally
+Clone the repository into your local machine:
 
-* Database creation
+```ruby
+$ git clone https://github.com/hansnery/odin-flight-booker.git
+```
 
-* Database initialization
+Install the required gems:
 
-* How to run the test suite
+```ruby
+$ bundle install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Run migration:
 
-* Deployment instructions
+```ruby
+$ rails db:migrate
+```
 
-* ...
+Populate the database:
+
+```ruby
+$ rails db:seed
+```
+
+Run the server:
+
+```ruby
+$ rails server
+```
+
+Access the web application locally:
+
+```ruby
+localhost:3000
+```
