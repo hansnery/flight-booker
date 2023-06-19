@@ -8,18 +8,6 @@ A mock project that emulates a website to book flights.
 
 # How to run this
 
-## Live
-Go to:  
-https://odin-flight-booker-by-hansnery.herokuapp.com/
-
-You can use the test account below to login:
-
-**Login:**  
-test@test.com  
-**Password:**  
-test123  
-
-Or create a new one.
 ## Locally
 Clone the repository into your local machine:
 
